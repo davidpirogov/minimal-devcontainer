@@ -1,0 +1,24 @@
+FROM mcr.microsoft.com/devcontainers/base:debian-12
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+WORKDIR /app
+
+USER root
+
+# trunk-ignore(hadolint/DL3008)
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+        curl \
+        git \
+        build-essential \
+        # Install more packages as needed here
+    && rm -rf /var/lib/apt/lists/*
+
+# Perform additional root setup tasks here (if any) as required
+
+USER vscode
+
+# Perform additional user-level setup tasks here (if any) as required
+
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "/usr/bin/whoami" ]

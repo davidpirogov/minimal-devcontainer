@@ -1,0 +1,32 @@
+{
+    "name": "my project (devcontainer)",
+    "dockerComposeFile": ["../docker-compose.dev.yml"],
+    "service": "my-project-dev",
+    "workspaceFolder": "/app",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1.6.5": {},
+        "ghcr.io/trunk-io/devcontainer-feature/trunk": "latest"
+    },
+    "forwardPorts": [],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode-remote.remote-containers",
+                "ms-azuretools.vscode-docker",
+                "EditorConfig.EditorConfig",
+                "eamodio.gitlens",
+                "trunk.io"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "git.enabled": true,
+                "git.enableCommitSigning": true,
+                "github.copilot": {
+                    "enable": true
+                }
+            }
+        }
+    }
+}

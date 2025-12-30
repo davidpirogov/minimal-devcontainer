@@ -1,0 +1,8 @@
+services:
+    my-project-dev:
+        build:
+            context: .
+            dockerfile: .devcontainer/Dockerfile.dev
+        volumes:
+            - .:/app:cached
+        command: sleep infinity
